@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Battery, Home, BatteryCharging, SunMedium } from 'lucide-react';
 import { Grid3X3 } from 'lucide-react';
 
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeatureCard from '@/components/FeatureCard';
@@ -81,7 +82,7 @@ const Index = () => {
 
   const projects = [
     {
-      image: 'https://images.unsplash.com/photo-1560863185-a4f6199b3387?q=80&w=1470',
+      image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7',
       title: 'Modern Residential Installation',
       description: 'Complete 8.5kW system providing 100% energy independence for this suburban home.',
       tags: ['Residential', 'Rooftop']
@@ -93,7 +94,7 @@ const Index = () => {
       tags: ['Commercial', 'Rooftop']
     },
     {
-      image: 'https://images.unsplash.com/photo-1631178659515-c391f8b84643?q=80&w=1470',
+      image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7',
       title: 'Rural Farm Installation',
       description: 'Solar panel array combined with battery storage for off-grid operation.',
       tags: ['Agricultural', 'Ground Mount']
@@ -107,52 +108,68 @@ const Index = () => {
   ];
 
   return (
-    <div className="bg-[#0d1b42] min-h-screen">
+    <div className="bg-black min-h-screen">
       <Navbar />
       
       <HeroSection />
       
       {/* Why Choose HelioGrid Section */}
-      <section id="why-solar" className="py-20">
+      <section id="why-solar" className="py-20 relative overflow-visible">
+        {/* Animated background accent */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[70vw] h-[40vw] max-w-5xl blur-3xl opacity-50 animate-pulse bg-gradient-to-tr from-solar-gold/20 via-solar-gold/10 to-transparent rounded-full" />
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-solar-white mb-4 glow-text reveal">
-            Why Choose <span className="text-solar-gold">HelioGrid</span>
-          </h2>
-          <p className="text-xl text-solar-white/80 text-center max-w-3xl mx-auto mb-12 reveal">
-            Experience the future of energy with our cutting-edge solar solutions designed for sustainability and savings.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-            {features.map((feature, index) => (
-              <FeatureCard 
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
+           {/* Stunning heading */}
+           <h2 className="text-5xl md:text-6xl font-black text-center text-solar-white mb-3 tracking-tight drop-shadow-[0_2px_24px_rgba(255,215,0,0.24)]">
+             Why Choose <span className="text-solar-gold">HelioGrid</span>
+           </h2>
+           <div className="flex justify-center mb-12">
+             <span className="h-1 w-32 bg-gradient-to-r from-solar-gold/90 to-solar-gold/30 rounded-full shadow-xl"></span>
+           </div>
+           <p className="text-2xl text-solar-white/80 text-center max-w-3xl mx-auto mb-16">
+             Experience the future of energy with our cutting-edge solar solutions designed for sustainability and savings.
+           </p>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+             {features.map((feature, index) => (
+               <FeatureCard 
+                 key={index}
+                 icon={feature.icon}
+                 title={feature.title}
+                 description={feature.description}
+                 accentIndex={index}
+               />
+             ))}
+           </div>
         </div>
       </section>
       
       {/* Solar Savings Calculator Section */}
-      <section id="calculator" className="py-20 bg-[#0d1b42]/70">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-solar-white mb-4 glow-text reveal">
+      <section id="calculator" className="py-24 relative overflow-visible bg-black">
+         {/* Gold blur accent - Features (debug: max visibility) */}
+         <div className="absolute bottom-0 right-0 w-[60vw] h-[30vw] max-w-2xl blur-2xl opacity-90 bg-gradient-to-br from-solar-gold/90 via-yellow-400/80 to-transparent rounded-full z-10 pointer-events-none" />
+        {/* Gold radial gradient accent */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[70vw] h-[40vw] max-w-4xl blur-3xl opacity-70 bg-gradient-to-br from-solar-gold/30 via-[#0d1b42]/80 to-transparent rounded-full pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-solar-white mb-3 tracking-tight">
             Solar Savings <span className="text-solar-gold">Calculator</span>
           </h2>
-          <p className="text-xl text-solar-white/80 text-center max-w-3xl mx-auto mb-12 reveal">
+          <div className="flex justify-center mb-10">
+            <span className="h-1 w-24 bg-gradient-to-r from-solar-gold/80 to-solar-gold/40 rounded-full shadow-lg"></span>
+          </div>
+          <p className="text-xl text-solar-white/80 text-center max-w-3xl mx-auto mb-14">
             Find out how much you can save by switching to clean solar energy.
           </p>
-          
-          <div className="max-w-4xl mx-auto reveal">
-            <SavingsCalculator />
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl bg-white/10 backdrop-blur-md border border-solar-gold/30 shadow-xl p-10">
+              <SavingsCalculator />
+            </div>
           </div>
         </div>
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20">
+      <section id="testimonials" className="py-20 relative overflow-visible bg-black">
+        {/* Gold blur accent - Testimonials */}
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[40vw] h-[12vw] max-w-lg blur-2xl opacity-70 bg-gradient-to-br from-solar-gold/80 via-yellow-400/50 to-transparent rounded-full -z-10 pointer-events-none" />
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-solar-white mb-4 glow-text reveal">
             Success <span className="text-solar-gold">Stories</span>
@@ -176,13 +193,13 @@ const Index = () => {
       </section>
       
       {/* Projects Section with Gold Blur and Grid Lines */}
-      <section id="projects" className="py-20 relative overflow-hidden">
-        {/* Gold Blur Effect */}
-        <div className="absolute inset-0 bg-[#0d1b42] overflow-hidden">
-          {/* Radial gradient for gold blur */}
-          <div className="absolute inset-0 opacity-20 bg-gradient-radial from-solar-gold via-transparent to-transparent"></div>
-          
-          {/* Grid Lines */}
+      <section id="projects" className="py-24 relative overflow-visible bg-black">
+        {/* Gold blur accent - Projects */}
+        <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[50vw] h-[15vw] max-w-2xl blur-2xl opacity-70 bg-gradient-to-br from-solar-gold/80 via-yellow-400/40 to-transparent rounded-full -z-10 pointer-events-none" />
+        {/* Gold radial gradient accent */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 -z-10 w-[80vw] h-[40vw] max-w-6xl blur-3xl opacity-70 bg-gradient-to-br from-solar-gold/30 via-[#0d1b42]/80 to-transparent rounded-full pointer-events-none" />
+        {/* Gold grid lines overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute inset-0 grid grid-cols-6 gap-4 opacity-10">
             {[...Array(6)].map((_, colIndex) => (
               <div key={`col-${colIndex}`} className="relative h-full">
@@ -191,7 +208,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-          
           <div className="absolute inset-0 grid grid-rows-6 gap-4 opacity-10">
             {[...Array(6)].map((_, rowIndex) => (
               <div key={`row-${rowIndex}`} className="relative w-full">
@@ -201,20 +217,17 @@ const Index = () => {
             ))}
           </div>
         </div>
-        
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex items-center justify-center mb-12 reveal">
-            <Grid3X3 className="text-solar-gold w-8 h-8 mr-4 animate-pulse" />
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-solar-white glow-text">
+          <div className="flex flex-col items-center justify-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-center text-solar-white mb-2 tracking-tight">
               Our <span className="text-solar-gold">Work</span>
             </h2>
+            <span className="h-1 w-24 bg-gradient-to-r from-solar-gold/80 to-solar-gold/40 rounded-full shadow-lg mb-4"></span>
           </div>
-          
-          <p className="text-xl text-solar-white/80 text-center max-w-3xl mx-auto mb-12 reveal">
+          <p className="text-xl text-solar-white/80 text-center max-w-3xl mx-auto mb-14">
             Explore our recent solar installations and transformations.
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {projects.map((project, index) => (
               <ProjectCard
                 key={index}
