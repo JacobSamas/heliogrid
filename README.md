@@ -1,24 +1,47 @@
-# Welcome to your Lovable project
+# HelioGrid — Solar Design Inspiration
 
-## Project info
+HelioGrid is a visually stunning, inspirational landing page for solar and clean energy projects. Every section is crafted to spark ideas and showcase premium, modern UI/UX design.
 
-**URL**: https://lovable.dev/projects/29531756-d432-475b-8b41-f4496bbec06a
+## ✨ Features
 
-## How can I edit this code?
+- Glassmorphism, gold accents, and layered gradients
+- Creative project and feature cards
+- Solar savings calculator with beautiful UI
+- Responsive, accessible, and ready to remix
 
-There are several ways of editing your application.
 
-**Use Lovable**
+## 🛠️ Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/29531756-d432-475b-8b41-f4496bbec06a) and start prompting.
+```bash
+git clone https://github.com/yourusername/heliogrid.git
+cd heliogrid
+npm install
+npm run dev
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📝 Customization
 
-**Use your preferred IDE**
+- Edit `src/pages/Index.tsx` for layout and sections.
+- Tweak colors in `tailwind.config.js` (ensure `solar-gold` is defined).
+- Replace images with your own or Unsplash links.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Deployment
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Ready for Vercel, Netlify, or any static host.
+
+## 📄 License
+
+MIT — free to use, remix, and share.
+
+## 🙏 Credits
+
+- [Unsplash](https://unsplash.com) for demo images
+- [Lucide Icons](https://lucide.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Spline](https://spline.design/) for the 3D hero section
+
+
+
 
 Follow these steps:
 
@@ -60,14 +83,3 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/29531756-d432-475b-8b41-f4496bbec06a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
